@@ -1,26 +1,20 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
-import { Check, X } from "lucide-react"
+import { Check, X } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
 
-interface DiscountFormProps {
-  onApply: (discount: number) => void
-}
-
-export function DiscountForm({ onApply }: DiscountFormProps) {
+export function DiscountForm({ onApply }) {
   const [code, setCode] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [isApplied, setIsApplied] = useState(false)
   const [error, setError] = useState("")
   const { toast } = useToast()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setIsLoading(true)
     setError("")
